@@ -5,7 +5,7 @@
 #include "SerialComm.h"
 #include "Protocol.h"
 
-// Decrarations and initialization
+// Declarations and initialization
 LedIndicator led(LEDPIN);
 MqqtSettings_t mqqtSettings;
 HardwareSerial serial(2);
@@ -47,16 +47,16 @@ void setMonitorAddress() {
       }
       Serial.print("Number of packs found: ");
       Serial.println(numPacks);
-    }
-    if (num_try > NUM_ADDRESS_ASSIG_TRY)
-    {
-      Serial.println("Number of address assigments exceded. Restarting...");
-      delay(WAIT_TO_RESTARD);
-      abort();
     } else {
-      num_try++;
+      if (num_try > NUM_ADDRESS_ASSIG_TRY)
+      {
+        Serial.println("Number of address assigment tries exceded. Restarting...");
+        delay(WAIT_TO_RESTARD);
+        abort();
+      } else {
+        num_try++;
+      }
     }
-    
   }
 }
 
@@ -77,7 +77,7 @@ void setup() {
 uint16_t getResponseValue(int reg, int targetPack)
 {
   bool response = false;
-  // Prep packet paylod to request voltage
+  // Prep packet payload to request voltage
   packet.address = targetPack;
   packet.request = true;
   packet.reg = reg;
@@ -114,17 +114,17 @@ void loop() {
     Serial.println("Getting Voltage...");
 
     // gets serial communication using the registry and the address + some debug.
-    uint16_t mV = getResponseValue(REG_VOLTAGE, monitorNumber);
+    int mV = getResponseValue(REG_VOLTAGE, monitorNumber);
     Serial.print("Voltage for pack "); Serial.print(monitorNumber); Serial.print(":");
     Serial.println(mV);
     MqttComm::sendMQTTData("v", monitorNumber, mV);
     delay(TIME_AFTER_MQTT_MSG);
     // gets serial communication using the registry and the address + some debug.
     Serial.println("Getting Temperature...");
-    uint16_t temp = getResponseValue(REG_TEMP, monitorNumber);
+    int temp = getResponseValue(REG_TEMP, monitorNumber);
     Serial.print("Temperature for pack "); Serial.print(monitorNumber); Serial.print(":");
     Serial.println(temp);
-    MqttComm::sendMQTTData("t", monitorNumber, temp);
+    // MqttComm::sendMQTTData("t", monitorNumber, temp);
     delay(TIME_AFTER_MQTT_MSG);
   }
   

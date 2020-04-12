@@ -44,8 +44,8 @@ void MqttComm::sendMQTTData(String sensor, int monitorNum, int value){
     const char* fullTopic = fullTopicString.c_str();
     itoa( value, valueString, 10 );
     Serial.println(valueString);
-    bool sucess = client.publish(fullTopic, valueString);
-    if(sucess)
+    bool success = client.publish(fullTopic, valueString);
+    if(success)
     {
         Serial.print("Topic: "); Serial.print(fullTopic); 
         Serial.print(" with value: "); Serial.print(valueString);
