@@ -15,8 +15,8 @@ then, this project might be of your interest.
 #### __Why packMonitor instead of cell-monitor?__ 
 Simply... to avoid confusion. By definition a cell is the smallest structural and functional unit of an system (in this context).  In my case, I'm creating a powerwall made up of 18650 batteries, those are grouped in parallel and then put in series to obtain final voltage. So for this context then:
 * Cell = a single 18650 battery
-* Pack = a group of batteries in parallel
-* Battery = a group of packs in series to achieve a given voltage.
+* Single Battery (a Pack) = a group of batteries in parallel
+* Battery Bank = a group of packs in series to achieve a given voltage.
 
 In this scenario, I want to measure the pack.
 
@@ -24,6 +24,8 @@ In this scenario, I want to measure the pack.
 To keep project simple I'm using development boards that require little to non soldering:
 * __Balancer__: up to you. I'm using Daligreen 1S.
 * __Digispark ATTINY85__: this should be under $1.50 USD each. You'll need one of these for each pack.
+* __PCB Board__: to reduce number of cables - normally 15 for $5.30 + shipping.
+* __Temp Sensor__: Optional - around $1.50 USD.
 * __NodeMCU ESP32-S__: this should be under $10.00 USD. You just need one.
 * __Ribbon Cable 28 AWG__: really depends on the distance. I found a kit of 6 color with 32.8 feet each (color) under $15.00 USD.
 * __Pin Connectors__: depends on how many monitors you are going to use. I purchased a kit under $6.00 (a lot more than what I needed.)
