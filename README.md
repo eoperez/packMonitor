@@ -25,7 +25,7 @@ To keep project simple I'm using development boards that require little to non s
 * __Balancer__: up to you. I'm using Daligreen 1S.
 * __Digispark ATTINY85__: this should be under $1.50 USD each. You'll need one of these for each pack.
 * __PCB Board__: to reduce number of cables - normally 15 for $5.30 + shipping.
-* __Temp Sensor__: Optional - around $1.50 USD.
+* __Temp Sensor__: Optional - around $1.50 USD.  
 * __NodeMCU ESP32-S__: this should be under $10.00 USD. You just need one.
 * __Ribbon Cable 28 AWG__: really depends on the distance. I found a kit of 6 color with 32.8 feet each (color) under $15.00 USD.
 * __Pin Connectors__: depends on how many monitors you are going to use. I purchased a kit under $6.00 (a lot more than what I needed.)
@@ -44,6 +44,7 @@ This project just will cover part of the monitoring but with some extra items li
  * Node-Red
  * Node-Red-Dashboards 
  * MQTT Broker
+
 
 You can get something like this:
 
