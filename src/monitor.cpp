@@ -3,7 +3,7 @@
 */
 #include <Arduino.h>
 #include <LedIndicator.h>
-#include <SoftwareSerial.h>
+#include <SoftSerial.h>
 
 #include <avr/power.h>
 
@@ -11,7 +11,7 @@
 #include "SerialComm.h"
 #include "Protocol.h"
 
-SoftwareSerial serial(RX_PIN, TX_PIN);
+SoftSerial serial(RX_PIN, TX_PIN);
 LedIndicator led(LEDPIN);
 SerialComm comm(serial);
 Protocol protocol(&comm);
